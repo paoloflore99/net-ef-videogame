@@ -14,7 +14,8 @@ namespace net_ef_videogame
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=db-videogames-query;Integrated Security=True;");
+            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=videogames;" +
+            "Integrated Security=True;TrustServerCertificate=True");
         }
     }
 }
