@@ -13,23 +13,25 @@ namespace net_ef_videogame
     [Table("videogames")]
     public class Videogame
     {
-        [Key]public int id { get; set; }
+        [Key]
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Overview { get; set; }
         public string Descrizione { get; set; }
-        public int Software_houseId { get; set; }
-        public virtual Sofware_houses software_house { get; set; }
-        
+
+        [ForeignKey("SoftwareHouse")]
+        public int SoftwareHouseId { get; set; }
+        public virtual Sofware_houses SoftwareHouse { get; set; }
+
         public Videogame() { }
-        public Videogame(int id , string name, string overview, string descrizione, int software_house_id)
+
+        public Videogame(int id, string name, string overview, string descrizione)
         {
-            this.id = id;
-            this.Name = name;
-            this.Overview = overview;
-            this.Descrizione = descrizione;
-            this.Software_houseId = software_house_id;
+            Id = id;
+            Name = name;
+            Overview = overview;
+            Descrizione = descrizione;
         }
-        
     }
 
     public class Sofware_houses
