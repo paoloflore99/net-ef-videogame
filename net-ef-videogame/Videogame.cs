@@ -17,8 +17,8 @@ namespace net_ef_videogame
         public string Name { get; set; }
         public string Overview { get; set; }
         public string Descrizione { get; set; }
-        public int Software_house_id { get; set; }
-        public Software_house software_House { get; set; }
+        public int Software_houseId { get; set; }
+        public Sofware_houses software_house { get; set; }
 
         public Videogame(int id , string name, string overview, string descrizione, int software_house_id)
         {
@@ -26,7 +26,26 @@ namespace net_ef_videogame
             this.Name = name;
             this.Overview = overview;
             this.Descrizione = descrizione;
-            this.Software_house_id = software_house_id;
+            this.Software_houseId = software_house_id;
         }
-    }     
-}
+    }
+
+    public class Sofware_houses
+    {
+
+        [Key] public int Id { get; set; }
+        public string Name { get; set; }
+        public string City { get; set; }
+        public List<Videogame> Videogamens { get; set; }
+
+
+        Sofware_houses(int id, string name, string city)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.City = city;
+        }
+
+    }
+
+    }
